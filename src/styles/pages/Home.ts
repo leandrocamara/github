@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 50px;
+`
+export const Footer = styled.div`
+  display: flex;
+  padding-block: 50px;
 `

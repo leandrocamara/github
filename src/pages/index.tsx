@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { GetStaticProps } from 'next'
 
 import Blog from '../components/Blog'
-import { Container } from '../styles/pages/Home'
+import { Container, Footer } from '../styles/pages/Home'
 import RocketseatLogo from '../assets/images/rocketseat.svg'
 import { PostInfo, PostService } from '../services/PostService'
 
@@ -19,7 +19,9 @@ const HomePage: React.FC<HomePageProps> = ({ posts }) => {
 
       <Blog posts={posts} />
 
-      <RocketseatLogo />
+      <Footer>
+        <RocketseatLogo />
+      </Footer>
     </Container>
   )
 }

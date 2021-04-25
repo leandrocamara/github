@@ -8,6 +8,8 @@ export default createGlobalStyle`
   }
 
   body {
+    height: 100%;
+    width: 100%;
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
     font: 400 16px Roboto, sans-serif;

@@ -17,16 +17,16 @@ const Profile: React.FC = (props: any) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch('http://localhost:8000/users/12851884')
+// export const getStaticProps: GetStaticProps = async () => {
+//   const response = await fetch('http://localhost:8000/users/12851884')
 
-  const data = await response.json()
+//   const data = await response.json()
 
-  return {
-    props: {
-      user: data
-    }
-  }
-}
+//   return {
+//     props: {
+//       user: data
+//     }
+//   }
+// }
 
 export default Profile

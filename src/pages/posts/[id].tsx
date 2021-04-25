@@ -1,4 +1,4 @@
-import Head from 'next/Head'
+import Head from 'next/head'
 import { ParsedUrlQuery } from 'node:querystring'
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
 

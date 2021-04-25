@@ -2,49 +2,51 @@ import Head from 'next/head'
 import { ParsedUrlQuery } from 'node:querystring'
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
 
-import { getAllPostIds, getPostData, PostData } from '../../utils/posts'
-import Date from '../../components/Date'
+import { Container } from '../../styles/pages/Post'
+import PostDetail from '../../components/Posts/PostDetail'
+import { PostInfo, PostService } from '../../services/PostService'
 
-interface Props {
-  post: PostData
+interface PostPageProps {
+  post: PostInfo
 }
 
-const Post: React.FC<Props> = ({ post }) => {
+const PostPage: React.FC<PostPageProps> = ({ post }) => {
   return (
-    <div>
+    <Container>
       <Head>
         <title>{post.title}</title>
       </Head>
 
-      {post.title}
-      <br />
-      {post.id}
-      <br />
-      <Date dateString={post.date} />
-      <br />
-      <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
-    </div>
+      <PostDetail post={post} />
+    </Container>
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds().map(postId => {
+  const paths = PostService.getAllPostIds().map(postId => {
     return { params: { id: postId } }
   })
 
-  return { paths, fallback: false }
+  return {
+    paths,
+    fallback: false
+  }
 }
 
 export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext<Params>
 ) => {
-  const post = await getPostData(context.params.id)
+  const post = await PostService.getPost(context.params.id)
 
-  return { props: { post } }
+  return {
+    props: {
+      post
+    }
+  }
 }
 
 interface Params extends ParsedUrlQuery {
   id: string
 }
 
-export default Post
+export default PostPage

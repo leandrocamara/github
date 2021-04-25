@@ -1,52 +1,32 @@
-import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
+import { GetStaticProps } from 'next'
 
-import RocketseatLogo from '../assets/rocketseat.svg'
-
+import Blog from '../components/Blog'
 import { Container } from '../styles/pages/Home'
-import { PostData, getSortedPostsData } from '../utils/posts'
-import Date from '../components/Date'
+import RocketseatLogo from '../assets/images/rocketseat.svg'
+import { PostInfo, PostService } from '../services/PostService'
 
-interface Props {
-  posts: PostData[]
+interface HomePageProps {
+  posts: PostInfo[]
 }
 
-const Home: React.FC<Props> = ({ posts }) => {
+const HomePage: React.FC<HomePageProps> = ({ posts }) => {
   return (
     <Container>
       <Head>
         <title>Homepage</title>
       </Head>
 
-      <main>
-        <RocketseatLogo />
-        <h1>ReactJS Structure</h1>
-        <p>A ReactJS + Next.js structure made by Rockeseat.</p>
-      </main>
+      <Blog posts={posts} />
 
-      <section>
-        <h2>Blog</h2>
-        <ul>
-          {posts.map(post => (
-            <li key={post.id}>
-              <Link href={`/posts/${post.id}`}>
-                <a>{post.title}</a>
-              </Link>
-              <br />
-              <small>
-                <Date dateString={post.date} />
-              </small>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <RocketseatLogo />
     </Container>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getSortedPostsData()
+  const posts = PostService.getSortedPosts()
+
   return {
     props: {
       posts
@@ -54,4 +34,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default Home
+export default HomePage

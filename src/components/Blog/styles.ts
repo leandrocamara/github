@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  padding: 50px;
-`
+export const Container = styled.div``
+
+export const Main = styled.main``
 
 export const Section = styled.section`
   padding-top: 30px;

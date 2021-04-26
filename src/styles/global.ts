@@ -13,5 +13,8 @@ export default createGlobalStyle`
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
     font: 400 16px Roboto, sans-serif;
+    max-width: 50rem;
+    margin: 3rem auto 6rem;
+    padding-inline: 50px;
   }
 `

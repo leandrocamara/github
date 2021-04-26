@@ -1,7 +1,7 @@
 import React from 'react'
-import Image from 'next/image'
+import Avatar from '../Avatar'
 
-import { Container, Flex, Info, Title } from './styles'
+import { Container, Info } from './styles'
 
 interface BiographyProps {
   name: string
@@ -18,16 +18,7 @@ const Biography: React.FC<BiographyProps> = ({
 }) => {
   return (
     <Container>
-      <Flex>
-        <Image
-          loader={({ src }) => src}
-          src={avatarUrl}
-          alt={name}
-          width="500"
-          height="500"
-        />
-        <Title>{name}</Title>
-      </Flex>
+      <Avatar name={name} avatarUrl={avatarUrl} />
       <Info>
         {info} You can contact me on <a href={linkedInUrl}>LinkedIn</a>.
       </Info>

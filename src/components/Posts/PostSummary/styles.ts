@@ -4,7 +4,6 @@ export const Container = styled.div``
 
 export const Title = styled.div`
   font-size: 22px;
-  text-align: justify;
 
   > a {
     color: #8257e6;

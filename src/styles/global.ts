@@ -15,6 +15,6 @@ export default createGlobalStyle`
     font: 400 16px Roboto, sans-serif;
     max-width: 50rem;
     margin: 3rem auto 6rem;
-    padding-inline: 50px;
+    padding-inline: 40px;
   }
 `

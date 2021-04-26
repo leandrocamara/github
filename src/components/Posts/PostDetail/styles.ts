@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const Container = styled.div``
 
 export const Article = styled.article`
-  text-align: justify;
   padding-top: 30px;
 `
 
@@ -24,6 +23,7 @@ export const ContentHtml = styled.div`
   font-size: 18px;
   line-height: 1.6;
   padding-top: 10px;
+  text-align: justify;
 
   > p {
     margin-block: 18px;

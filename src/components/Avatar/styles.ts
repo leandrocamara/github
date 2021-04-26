@@ -25,7 +25,7 @@ export const Flex = styled.div<FlexProps>`
 
 export const Title = styled.h1<TitleProps>`
   text-align: center;
-  font-size: ${props => (props.titleSize ? props.titleSize : '54px')};
+  font-size: ${props => (props.titleSize ? props.titleSize : '50px')};
   color: ${props =>
     props.titleColor ? props.titleColor : props.theme.colors.primary};
   margin-top: 30px;
